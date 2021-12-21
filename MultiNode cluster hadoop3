@@ -5,6 +5,9 @@ ssh -i Downloads/file.pem ubuntu@public_dns_address
 # Update the system
 sudo apt-get update && sudo apt-get dist-upgrade -y
 
+#exit from instance
+exit
+
 # Copy public key on to the DataCenter main server
 scp -i multi.pem multi.pem ubuntu@public_dns:~/.ssh
 
@@ -14,12 +17,20 @@ sudo adduser hduser --ingroup hadoop
 sudo adduser hduser sudo
 sudo su hduser
 
+cd
+
 # Create local key
 ssh-keygen
+
+cd .ssh
+
 cat id_rsa.pub >> authorized_keys
+
+cd
 
 # Copy the instance public key (multi.pem) to hduser's directory
 sudo su
+cd
 cp /home/ubuntu/.ssh/multi.pem /home/hduser/.ssh/
 chown hduser:hadoop /home/hduser/.ssh/multi.pem
 exit
