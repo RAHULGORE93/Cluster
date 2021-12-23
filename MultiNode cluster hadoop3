@@ -112,6 +112,8 @@ sudo su -c touch /home/hduser/.ssh/config; echo "Host *\n StrictHostKeyChecking 
 UserKnownHostsFile=/dev/null" > /home/hduser/.ssh/config
 sudo service ssh restart
 
+cd
+
 # Configure .profile (make sure you are on NN) 
  nano .profile
  eval `ssh-agent` ssh-add /home/hduser/.ssh/abc.pem
