@@ -119,6 +119,8 @@ nano yarn-site.xml
   </property>
 
 
+cd
+
 #Format Namenode
 hdfs namenode -format
 
